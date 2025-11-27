@@ -62,7 +62,6 @@ const TeacherDashboard = ({ onClassSelect, onLogout }: TeacherDashboardProps) =>
       <main className="ml-64 p-8">
         <div className="mb-8 animate-fade-in">
           <h1 className="text-3xl font-bold mb-2">Добрый день, Мария Ивановна!</h1>
-          <p className="text-muted-foreground">27 ноября 2024, среда</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">

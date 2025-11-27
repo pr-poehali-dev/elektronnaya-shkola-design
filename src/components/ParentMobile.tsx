@@ -11,11 +11,11 @@ const ParentMobile = ({ onLogout }: ParentMobileProps) => {
   const [activeTab, setActiveTab] = useState("home");
 
   const recentGrades = [
-    { subject: "Математика", grade: 5, date: "27.11" },
-    { subject: "Русский язык", grade: 4, date: "26.11" },
-    { subject: "Литература", grade: 5, date: "26.11" },
-    { subject: "Физика", grade: 4, date: "25.11" },
-    { subject: "Химия", grade: 5, date: "25.11" },
+    { subject: "Математика", grade: 5 },
+    { subject: "Русский язык", grade: 4 },
+    { subject: "Литература", grade: 5 },
+    { subject: "Физика", grade: 4 },
+    { subject: "Химия", grade: 5 },
   ];
 
   const homework = [
@@ -71,7 +71,6 @@ const ParentMobile = ({ onLogout }: ParentMobileProps) => {
                   >
                     <div className="flex-1">
                       <div className="font-medium text-sm">{item.subject}</div>
-                      <div className="text-xs text-muted-foreground">{item.date}</div>
                     </div>
                     <div className={`w-10 h-10 rounded-lg ${getGradeColor(item.grade)} flex items-center justify-center text-white font-bold`}>
                       {item.grade}
@@ -147,7 +146,6 @@ const ParentMobile = ({ onLogout }: ParentMobileProps) => {
                   >
                     <div className="flex-1">
                       <div className="font-medium">{item.subject}</div>
-                      <div className="text-sm text-muted-foreground">{item.date}</div>
                     </div>
                     <div className={`w-12 h-12 rounded-lg ${getGradeColor(item.grade)} flex items-center justify-center text-white font-bold text-lg`}>
                       {item.grade}
