@@ -29,25 +29,7 @@ const Gradebook = ({ className, onBack }: GradebookProps) => {
 
   const dates = ["Пн 25.11", "Вт 26.11", "Ср 27.11", "Чт 28.11", "Пт 29.11"];
   
-  const [grades, setGrades] = useState<Record<string, string>>({
-    "1-0": "5",
-    "1-1": "4",
-    "1-2": "5",
-    "2-0": "4",
-    "2-2": "5",
-    "2-3": "3",
-    "3-1": "5",
-    "3-2": "н",
-    "4-0": "5",
-    "4-1": "5",
-    "4-2": "5",
-    "5-0": "3",
-    "5-1": "4",
-    "6-2": "5",
-    "7-0": "4",
-    "7-1": "5",
-    "8-1": "3",
-  });
+  const [grades, setGrades] = useState<Record<string, string>>({});
 
   const handleGradeClick = (studentId: number, dateIndex: number) => {
     const key = `${studentId}-${dateIndex}`;
@@ -167,9 +149,7 @@ const Gradebook = ({ className, onBack }: GradebookProps) => {
                   {dates.map((date, index) => (
                     <th
                       key={index}
-                      className={`text-center p-3 font-semibold min-w-[80px] ${
-                        index === 2 ? "bg-primary/10" : "bg-muted"
-                      }`}
+                      className="text-center p-3 font-semibold min-w-[80px] bg-muted"
                     >
                       {date}
                     </th>
@@ -191,7 +171,7 @@ const Gradebook = ({ className, onBack }: GradebookProps) => {
                       return (
                         <td
                           key={dateIndex}
-                          className={`text-center p-2 ${dateIndex === 2 ? "bg-primary/5" : ""}`}
+                          className="text-center p-2"
                         >
                           <button
                             onClick={() => handleGradeClick(student.id, dateIndex)}
