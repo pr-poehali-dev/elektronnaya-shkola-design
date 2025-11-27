@@ -1,12 +1,42 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import LoginScreen from "@/components/LoginScreen";
+import TeacherDashboard from "@/components/TeacherDashboard";
+import Gradebook from "@/components/Gradebook";
+import ParentMobile from "@/components/ParentMobile";
+
+type View = "login" | "teacher-dashboard" | "gradebook" | "parent-mobile";
 
 const Index = () => {
+  const [currentView, setCurrentView] = useState<View>("login");
+  const [selectedClass, setSelectedClass] = useState<string>("");
+
+  const handleLogin = (role: "teacher" | "parent") => {
+    if (role === "teacher") {
+      setCurrentView("teacher-dashboard");
+    } else {
+      setCurrentView("parent-mobile");
+    }
+  };
+
+  const handleClassSelect = (className: string) => {
+    setSelectedClass(className);
+    setCurrentView("gradebook");
+  };
+
+  const handleBack = () => {
+    setCurrentView("teacher-dashboard");
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen">
+      {currentView === "login" && <LoginScreen onLogin={handleLogin} />}
+      {currentView === "teacher-dashboard" && (
+        <TeacherDashboard onClassSelect={handleClassSelect} />
+      )}
+      {currentView === "gradebook" && (
+        <Gradebook className={selectedClass} onBack={handleBack} />
+      )}
+      {currentView === "parent-mobile" && <ParentMobile />}
     </div>
   );
 };
