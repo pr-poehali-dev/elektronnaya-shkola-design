@@ -3,7 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 
-const ParentMobile = () => {
+interface ParentMobileProps {
+  onLogout: () => void;
+}
+
+const ParentMobile = ({ onLogout }: ParentMobileProps) => {
   const [activeTab, setActiveTab] = useState("home");
 
   const recentGrades = [
@@ -43,8 +47,8 @@ const ParentMobile = () => {
             <h2 className="font-bold text-lg">Иванов Алексей</h2>
             <p className="text-sm text-muted-foreground">5А класс</p>
           </div>
-          <Button variant="ghost" size="icon">
-            <Icon name="Settings" size={20} />
+          <Button variant="ghost" size="icon" onClick={onLogout}>
+            <Icon name="LogOut" size={20} />
           </Button>
         </div>
       </header>

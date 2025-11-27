@@ -27,16 +27,20 @@ const Index = () => {
     setCurrentView("teacher-dashboard");
   };
 
+  const handleLogout = () => {
+    setCurrentView("login");
+  };
+
   return (
     <div className="min-h-screen">
       {currentView === "login" && <LoginScreen onLogin={handleLogin} />}
       {currentView === "teacher-dashboard" && (
-        <TeacherDashboard onClassSelect={handleClassSelect} />
+        <TeacherDashboard onClassSelect={handleClassSelect} onLogout={handleLogout} />
       )}
       {currentView === "gradebook" && (
         <Gradebook className={selectedClass} onBack={handleBack} />
       )}
-      {currentView === "parent-mobile" && <ParentMobile />}
+      {currentView === "parent-mobile" && <ParentMobile onLogout={handleLogout} />}
     </div>
   );
 };

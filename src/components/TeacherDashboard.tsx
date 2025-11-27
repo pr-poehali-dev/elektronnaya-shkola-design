@@ -4,9 +4,10 @@ import Icon from "@/components/ui/icon";
 
 interface TeacherDashboardProps {
   onClassSelect: (className: string) => void;
+  onLogout: () => void;
 }
 
-const TeacherDashboard = ({ onClassSelect }: TeacherDashboardProps) => {
+const TeacherDashboard = ({ onClassSelect, onLogout }: TeacherDashboardProps) => {
   const schedule = [
     { time: "09:00 - 09:45", class: "5А", subject: "Математика" },
     { time: "10:00 - 10:45", class: "6Б", subject: "Математика" },
@@ -49,6 +50,13 @@ const TeacherDashboard = ({ onClassSelect }: TeacherDashboardProps) => {
             Сообщения
           </Button>
         </nav>
+
+        <div className="absolute bottom-6 left-6 right-6">
+          <Button variant="outline" className="w-full justify-start" onClick={onLogout}>
+            <Icon name="LogOut" size={18} className="mr-3" />
+            Выход
+          </Button>
+        </div>
       </aside>
 
       <main className="ml-64 p-8">
